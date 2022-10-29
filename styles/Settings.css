@@ -1,0 +1,26 @@
+.card {
+    border: 1px solid black;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper {
+    width: 80%;
+    margin: 10px auto;
+}
+
+.appRange {
+    width: 100%;
+}
+
+.paramName {
+    margin: 20px auto;
+}
