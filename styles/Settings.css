@@ -10,6 +10,8 @@
 .options {
     display: flex;
     justify-content: space-between;
+    margin: auto;
+    width: 95%;
 }
 
 .wrapper {
@@ -19,6 +21,7 @@
 
 .appRange {
     width: 100%;
+    margin: auto;
 }
 
 .paramName {

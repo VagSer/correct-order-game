@@ -1,9 +1,6 @@
-import { useState } from "react"
 
-export default function Settings() {
-    const [howMany, setHowMany] = useState(2)
-    const [numbers, setNumbers] = useState(0)
-    const [isReverse, setIsReverse] = useState(false)
+
+export default function Settings(props: any) {
 
   return (
     <div className="card">
@@ -21,8 +18,8 @@ export default function Settings() {
                 min={2}
                 step={1}
                 max={5}
-                value={howMany}
-                onChange={e => setHowMany(Number(e.target.value))}
+                value={props.howMany}
+                onChange={e => props.setHowMany(Number(e.target.value))}
             />
         </div>
         <h2 className="paramName">Значения</h2>
@@ -41,29 +38,31 @@ export default function Settings() {
                 min={0}
                 step={1}
                 max={5}
-                value={numbers}
-                onChange={e => setNumbers(Number(e.target.value))}
+                value={props.numbers}
+                onChange={e => props.setNumbers(Number(e.target.value))}
             />
         </div>
         <div className="wrapper">
             <div className="options">
                 <button
-                    className={!isReverse? "selectedOrder" : 'order'}
-                    disabled={!isReverse? true : false}
-                    onClick={() => setIsReverse(!isReverse)}
+                    className={!props.isReverse? "selectedOrder" : 'order'}
+                    disabled={!props.isReverse? true : false}
+                    onClick={() => props.setIsReverse(!props.isReverse)}
                 >
                     По возрастанию
                 </button>
                 <button
-                    className={isReverse? "selectedOrder" : 'order'}
-                    disabled={isReverse? true : false}
-                    onClick={() => setIsReverse(!isReverse)}
+                    className={props.isReverse? "selectedOrder" : 'order'}
+                    disabled={props.isReverse? true : false}
+                    onClick={() => props.setIsReverse(!props.isReverse)}
                 >
                     По убыванию
                 </button>
             </div>
         </div>
-        <button>
+        <button
+            onClick={() => props.startGame()}
+        >
             Играть
         </button>
     </div>
