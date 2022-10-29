@@ -24,3 +24,13 @@
 .paramName {
     margin: 20px auto;
 }
+
+.selectedOrder {
+    background-color: darkgreen;
+    color: white
+}
+
+.order {
+    background-color: darkblue;
+    color: white
+}
