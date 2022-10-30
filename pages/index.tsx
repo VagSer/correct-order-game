@@ -11,7 +11,6 @@ export default function Home() {
   gameSet = [] /* Множество, из которого выбираются элементы*/
 
   const [game, setGame] = useState([])  /* Множество, которое в игре*/
-  const [correct, setCorrect] = useState([]) /* Правильный ответ*/
 
   const [howMany, setHowMany] = useState(2)
   const [numbers, setNumbers] = useState(0)
@@ -56,10 +55,10 @@ export default function Home() {
         }
       }
       let round = [...gameSet]
-      for (let i = 0; i < howMany; i++) {
-        let newElement = round[getRandomInt(round.length)]
+      for (let i = 1; i <= howMany; i++) {
+        let newElement = {id: i, value: round[getRandomInt(round.length)], visibleValue: ''}
+        round = round.filter(elem => elem != newElement.value)
         newGame.push(newElement)
-        round = round.filter(elem => elem != newElement)
       }
       setGame([...newGame])
   }
@@ -85,7 +84,10 @@ export default function Home() {
         </div>
       </div>
       */}
-      <TestComponent isReverse={isReverse}/>
+      {game.length !== 0?
+      <TestComponent isReverse={isReverse} game={game}/>
+      :
+      <div></div>} 
     </div>
   )
 }

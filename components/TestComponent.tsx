@@ -7,20 +7,13 @@ export default function TestComponent(props) {
         else return -1
     }
 
-    const [cardList, setCardList] = useState([
-        {id: 1, value: 7, visibleValue: ''},
-        {id: 2, value: 5, visibleValue: ''},
-        {id: 3, value: 11, visibleValue: ''},
-        {id: 4, value: 13, visibleValue: ''},
-    ])
+    const [cardList, setCardList] = useState([...props.game])
 
     let correctAnswer = props.isReverse? [...cardList].sort(sortValues).reverse() : [...cardList].sort(sortValues)
 
     const [correctList, setCorrectList] = useState([...correctAnswer])
 
     const [currentCard, setCurrentCard] = useState(null)
-
-
 
     const simpleDropHandler = (e) => {
         e.preventDefault()
