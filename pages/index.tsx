@@ -1,6 +1,8 @@
 import Settings from "../components/Settings";
 import { useState } from "react";
 import ArrayElement from "../components/ArrayElement";
+import AnswerField from "../components/AnswerField";
+import TestComponent from "../components/TestComponent";
 
 
 
@@ -73,14 +75,17 @@ export default function Home() {
         setIsReverse={setIsReverse}
         startGame={startGame}
       />
+      {/*
       <div style={{border: '2px solid darkgreen'}}>
         <div style={{display: 'flex', justifyContent: 'space-around'}}>
           {game.map(element => <ArrayElement key={element} value={element}/>)}
         </div>
-        <div>
-          А тут ответы
+        <div style={{display: 'flex', justifyContent: 'space-around'}}>
+          {game.map(element => <AnswerField key={element} />)}
         </div>
       </div>
+      */}
+      <TestComponent />
     </div>
   )
 }

@@ -1,11 +1,8 @@
 import { useState } from "react"
 
-export default function ArrayElement(props: any) {
 
-  const dragStartHandler = (e, card) => {
-      console.log('Взяли карточку', card)
-      setCurrent(card)
-  }
+
+export default function AnswerField(props: any) {
   const dragEndHandler = (e) => {
     e.target.style.background = 'white'
   }
@@ -20,14 +17,12 @@ export default function ArrayElement(props: any) {
   
   return (
     <div 
-      draggable = {true} 
-      style={{cursor: 'grab'}}
       onDragStart={e => dragStartHandler(e, props.value)}
       onDragLeave={e => dragEndHandler(e)}
-      onDragOver={e => dragEndHandler(e)}
+      onDragOver={e => dragOverHandler(e)}
       onDrop={e => dropHandler(e, props.value)}
+      style={{width: '100px', height: '100px', background: 'grey'}}
     >
-      <h2>{props.value}</h2>
     </div>
   )
 }
