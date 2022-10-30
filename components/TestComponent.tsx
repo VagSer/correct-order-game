@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
 
-export default function TestComponent(props) {
+export default function TestComponent(props: any) {
     const sortValues = (a, b) => {
         if (a.value > b.value) return 1
         else return -1
@@ -51,7 +51,7 @@ export default function TestComponent(props) {
 
   return (
     <div>
-        <h2>ЭТО ТЕСТОВЫЙ КОМПОНЕНТ</h2>
+        {}
         <div style={{border: '1px solid black', display:'flex', justifyContent: 'space-around'}}>
             {cardList.map(card => 
                 card.value !== -10 ?
@@ -59,11 +59,14 @@ export default function TestComponent(props) {
                     key={card.id} 
                     draggable={true}
                     onDragStart={e => dragStartHandler(e, card)} /* Взяли карточку */
+                    onTouchStart={e => dragStartHandler(e, card)}
                     onDragLeave={e => dragEndHandler(e)} /* Вышли за пределы другой*/
                     onDragEnd={e => dragEndHandler(e)} /* Отпустили */
+                    onTouchMove={e => {dragEndHandler(e) }}
                     onDragOver={e => dragOverHandler(e)} /* Находимся над другой карточкой */
                     onDrop={e => simpleDropHandler(e)} /* Действие, когда отпустили*/
-                    style={{cursor: 'grab', width: '100px', height: '100px', justifyContent: 'center', display: 'flex', border: '2px solid blue', margin: '10px'}}>
+                    onTouchEnd={e => simpleDropHandler(e)}
+                    style={{cursor: 'grab', width: '100px', height: '100px', justifyContent: 'center', display: 'flex', border: '2px solid blue', margin: '10px', 'background': 'lightgreen'}}>
                     <h2>
                         {card.value}
                     </h2>
@@ -86,6 +89,7 @@ export default function TestComponent(props) {
                     key={card.id} 
                     onDragLeave={e => dragEndHandler(e)} /* Вышли за пределы другой*/
                     onDragEnd={e => dragEndHandler(e)} /* Отпустили */
+                    onTouchEnd={e => dropHandler(e, card)}
                     onDragOver={e => dragOverHandler(e)} /* Находимся над другой карточкой */
                     onDrop={e => dropHandler(e, card)} /* Действие, когда отпустили*/
                     style={{width: '100px', height: '100px', justifyContent: 'center', display: 'flex', border: '2px solid blue', margin: '10px'}}>
