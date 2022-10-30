@@ -1,24 +1,33 @@
 import { useState } from "react"
 
 
-export default function TestComponent() {
-    const [cardList, setCardList] = useState([
-        {id: 1, value: "3 Карточка"},
-        {id: 2, value: "1 Карточка"},
-        {id: 3, value: "2 Карточка"},
-        {id: 4, value: "4 Карточка"},
-    ])
- 
-
-    const [currentCard, setCurrentCard] = useState(null)
-
-    const sortCards = (a, b) => {
-        if (a.id > b.id) return 1
+export default function TestComponent(props) {
+    const sortValues = (a, b) => {
+        if (a.value > b.value) return 1
         else return -1
     }
 
+    const [cardList, setCardList] = useState([
+        {id: 1, value: 7, visibleValue: ''},
+        {id: 2, value: 5, visibleValue: ''},
+        {id: 3, value: 11, visibleValue: ''},
+        {id: 4, value: 13, visibleValue: ''},
+    ])
+
+    let correctAnswer = props.isReverse? [...cardList].sort(sortValues).reverse() : [...cardList].sort(sortValues)
+
+    const [correctList, setCorrectList] = useState([...correctAnswer])
+
+    const [currentCard, setCurrentCard] = useState(null)
+
+
+
+    const simpleDropHandler = (e) => {
+        e.preventDefault()
+        e.target.style.background = 'white'
+    }
+
     const dragStartHandler = (e, card) => {
-        console.log('Взяли карточку', card)
         setCurrentCard(card)
     }
 
@@ -33,12 +42,10 @@ export default function TestComponent() {
 
     const dropHandler = (e, card) => {
         e.preventDefault()
-        console.log('Отпустили карточку ', card)
-        setCardList(cardList.sort(sortCards).map(c => {
-            if (c.id === card.id) return {...c, value: currentCard.value} /* Если карточка в массиве совпадает с той, на которую мы навели */
-            if (c.id === currentCard.id) return {...c, value: card.value} /* Если карточка в массиве совпадает с той, которую мы взяли */
-            return c
-        }))
+        if (card.id === currentCard.id) {
+            setCardList(cardList.map(c => c = c.id === currentCard.id? {...c, value: -10} : {...c}))
+            setCorrectList(correctList.map(c => c = c.id === currentCard.id? {...c, visibleValue: currentCard.value} : {...c}))
+        }
         e.target.style.background = 'white'
     }
 
@@ -48,6 +55,7 @@ export default function TestComponent() {
         <h2>ЭТО ТЕСТОВЫЙ КОМПОНЕНТ</h2>
         <div style={{border: '1px solid black', display:'flex', justifyContent: 'space-around'}}>
             {cardList.map(card => 
+                card.value !== -10 ?
                 <div 
                     key={card.id} 
                     draggable={true}
@@ -55,9 +63,36 @@ export default function TestComponent() {
                     onDragLeave={e => dragEndHandler(e)} /* Вышли за пределы другой*/
                     onDragEnd={e => dragEndHandler(e)} /* Отпустили */
                     onDragOver={e => dragOverHandler(e)} /* Находимся над другой карточкой */
-                    onDrop={e => dropHandler(e, card)} /* Действие, когда отпустили*/
+                    onDrop={e => simpleDropHandler(e)} /* Действие, когда отпустили*/
                     style={{cursor: 'grab', width: '100px', height: '100px', justifyContent: 'center', display: 'flex', border: '2px solid blue', margin: '10px'}}>
-                    {card.value}
+                    <h2>
+                        {card.value}
+                    </h2>
+                </div>
+                :
+                <div 
+                    key={card.id} 
+                    style={{width: '100px', height: '100px', justifyContent: 'center', display: 'flex', border: '2px solid blue', margin: '10px'}}>
+                    <h2>
+                        {card.visibleValue}
+                    </h2>
+                </div>
+                )
+            }
+        </div>
+        <h3>Отсортируй</h3>
+        <div style={{border: '1px solid black', display:'flex', justifyContent: 'space-around'}}>
+            {correctList.map(card => 
+                <div 
+                    key={card.id} 
+                    onDragLeave={e => dragEndHandler(e)} /* Вышли за пределы другой*/
+                    onDragEnd={e => dragEndHandler(e)} /* Отпустили */
+                    onDragOver={e => dragOverHandler(e)} /* Находимся над другой карточкой */
+                    onDrop={e => dropHandler(e, card)} /* Действие, когда отпустили*/
+                    style={{width: '100px', height: '100px', justifyContent: 'center', display: 'flex', border: '2px solid blue', margin: '10px'}}>
+                    <h2>
+                        {card.visibleValue}
+                    </h2>
                 </div>)
             }
         </div>
