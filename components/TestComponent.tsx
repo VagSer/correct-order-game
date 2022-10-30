@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 
 export default function TestComponent(props) {
@@ -12,6 +12,7 @@ export default function TestComponent(props) {
     let correctAnswer = props.isReverse? [...cardList].sort(sortValues).reverse() : [...cardList].sort(sortValues)
 
     const [correctList, setCorrectList] = useState([...correctAnswer])
+    const [correctCounter, setCorrectCounter] = useState(0)
 
     const [currentCard, setCurrentCard] = useState(null)
 
@@ -33,11 +34,16 @@ export default function TestComponent(props) {
         e.target.style.background = 'lightgray'
     }
 
+    useEffect(() => {
+        if (correctCounter == correctList.length) props.setGameIsWin(!props.gameIsWin)
+    })
+
     const dropHandler = (e, card) => {
         e.preventDefault()
         if (card.id === currentCard.id) {
             setCardList(cardList.map(c => c = c.id === currentCard.id? {...c, value: -10} : {...c}))
             setCorrectList(correctList.map(c => c = c.id === currentCard.id? {...c, visibleValue: currentCard.value} : {...c}))
+            setCorrectCounter(correctCounter + 1)
         }
         e.target.style.background = 'white'
     }

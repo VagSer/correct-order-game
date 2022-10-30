@@ -3,6 +3,7 @@ import { useState } from "react";
 import ArrayElement from "../components/ArrayElement";
 import AnswerField from "../components/AnswerField";
 import TestComponent from "../components/TestComponent";
+import WinScreen from "../components/WinScreen";
 
 
 
@@ -15,10 +16,13 @@ export default function Home() {
   const [howMany, setHowMany] = useState(2)
   const [numbers, setNumbers] = useState(0)
   const [isReverse, setIsReverse] = useState(false)
+  const [gameIsOn, setGameIsOn] = useState(false)
+  const [gameIsWin, setGameIsWin] = useState(false)
 
   const getRandomInt = (max: number) => Math.floor(Math.random() * max)
 
   const startGame = () => {
+      setGameIsOn(true)
       setGame([])
       let newGame = []
       switch(numbers) {
@@ -63,9 +67,14 @@ export default function Home() {
       setGame([...newGame])
   }
 
+  const restartGame = () => {
+    setGameIsOn(false)
+    setGameIsWin(false)
+  }
+
   return (
     <div>
-      <Settings 
+      {!gameIsOn? <Settings 
         howMany={howMany}
         setHowMany={setHowMany} 
         numbers={numbers} 
@@ -74,6 +83,12 @@ export default function Home() {
         setIsReverse={setIsReverse}
         startGame={startGame}
       />
+      :!gameIsWin?
+      <TestComponent isReverse={isReverse} game={game} gameIsWin={gameIsWin} setGameIsWin={setGameIsWin}/>
+      :
+      <WinScreen restartGame={restartGame}/>
+      }
+      
       {/*
       <div style={{border: '2px solid darkgreen'}}>
         <div style={{display: 'flex', justifyContent: 'space-around'}}>
@@ -84,10 +99,7 @@ export default function Home() {
         </div>
       </div>
       */}
-      {game.length !== 0?
-      <TestComponent isReverse={isReverse} game={game}/>
-      :
-      <div></div>} 
+      {} 
     </div>
   )
 }
