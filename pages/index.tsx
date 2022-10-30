@@ -1,13 +1,15 @@
 import Settings from "../components/Settings";
 import { useState } from "react";
+import ArrayElement from "../components/ArrayElement";
+
 
 
 export default function Home() {
   let gameSet: number[] | string[];
-  gameSet = []
+  gameSet = [] /* Множество, из которого выбираются элементы*/
 
-  const [game, setGame] = useState([])
-  const [correct, setCorrect] = useState([])
+  const [game, setGame] = useState([])  /* Множество, которое в игре*/
+  const [correct, setCorrect] = useState([]) /* Правильный ответ*/
 
   const [howMany, setHowMany] = useState(2)
   const [numbers, setNumbers] = useState(0)
@@ -16,10 +18,8 @@ export default function Home() {
   const getRandomInt = (max: number) => Math.floor(Math.random() * max)
 
   const startGame = () => {
-      isReverse?
-      console.log(`Начали игру. Объектов: ${howMany}, используем множество ${numbers}. Сортировка по убыванию`)
-      :
-      console.log(`Начали игру. Объектов: ${howMany}, используем множество ${numbers}. Сортировка по возрастанию`)
+      setGame([])
+      let newGame = []
       switch(numbers) {
         case 0: {
           gameSet = ['А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О',
@@ -53,7 +53,13 @@ export default function Home() {
           break
         }
       }
-      console.log(gameSet)
+      let round = [...gameSet]
+      for (let i = 0; i < howMany; i++) {
+        let newElement = round[getRandomInt(round.length)]
+        newGame.push(newElement)
+        round = round.filter(elem => elem != newElement)
+      }
+      setGame([...newGame])
   }
 
   return (
@@ -68,8 +74,8 @@ export default function Home() {
         startGame={startGame}
       />
       <div style={{border: '2px solid darkgreen'}}>
-        <div className="field">
-          Тут будет игровое поле
+        <div style={{display: 'flex', justifyContent: 'space-around'}}>
+          {game.map(element => <ArrayElement key={element} value={element}/>)}
         </div>
         <div>
           А тут ответы
