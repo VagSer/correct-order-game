@@ -52,7 +52,7 @@ export default function GameComponent(props: any) {
 
   return (
     <div className = 'Game'>
-        <div className="Game__Field">
+        <div className = "Game__Field">
             {cardList.map(card => 
                 card.value !== -10 ?
                 <div 

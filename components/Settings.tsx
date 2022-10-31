@@ -3,18 +3,18 @@
 export default function Settings(props: any) {
 
   return (
-    <div className="card">
-        <div className="cardContent">
-            <h2 className="paramName">Кол-во предметов</h2>
-            <div className='wrapper'>
-                <div className="options">
+    <div className="Card">
+        <div className="CardContent">
+            <h2 className="ParamName">Кол-во предметов</h2>
+            <div className='Wrapper'>
+                <div className="Options">
                     <h3>2</h3>
                     <h3>3</h3>
                     <h3>4</h3>
                     <h3>5</h3>
                 </div>
                 <input 
-                    className="appRange"
+                    className="AppRange"
                     type='range'
                     min={2}
                     step={1}
@@ -23,9 +23,9 @@ export default function Settings(props: any) {
                     onChange={e => props.setHowMany(Number(e.target.value))}
                 />
             </div>
-            <h2 className="paramName">Значения</h2>
-            <div className='wrapper_width'>
-                <div className="options">
+            <h2 className="ParamName">Значения</h2>
+            <div className='Wrapper_width'>
+                <div className="Options">
                     <h3>А</h3>
                     <h3>9</h3>
                     <h3>19</h3>
@@ -34,7 +34,7 @@ export default function Settings(props: any) {
                     <h3>999</h3>
                 </div>
                 <input 
-                    className="appRange"
+                    className="AppRange"
                     type='range'
                     min={0}
                     step={1}
@@ -43,17 +43,17 @@ export default function Settings(props: any) {
                     onChange={e => props.setNumbers(Number(e.target.value))}
                 />
             </div>
-            <div className="wrapper_width">
-                <div className="options">
+            <div className="Wrapper_width">
+                <div className="Options">
                     <button
-                        className={!props.isReverse? "selectedOrder" : 'order'}
+                        className={!props.isReverse? "SelectedOrder" : 'Order'}
                         disabled={!props.isReverse? true : false}
                         onClick={() => props.setIsReverse(!props.isReverse)}
                     >
                         По возрастанию
                     </button>
                     <button
-                        className={props.isReverse? "selectedOrder" : 'order'}
+                        className={props.isReverse? "SelectedOrder" : 'Order'}
                         disabled={props.isReverse? true : false}
                         onClick={() => props.setIsReverse(!props.isReverse)}
                     >
