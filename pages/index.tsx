@@ -2,7 +2,7 @@ import Settings from "../components/Settings";
 import { useState } from "react";
 import ArrayElement from "../components/ArrayElement";
 import AnswerField from "../components/AnswerField";
-import TestComponent from "../components/TestComponent";
+import GameComponent from "../components/GameComponent";
 import WinScreen from "../components/WinScreen";
 
 
@@ -84,22 +84,10 @@ export default function Home() {
         startGame={startGame}
       />
       :!gameIsWin?
-      <TestComponent isReverse={isReverse} game={game} gameIsWin={gameIsWin} setGameIsWin={setGameIsWin}/>
+      <GameComponent isReverse={isReverse} game={game} gameIsWin={gameIsWin} setGameIsWin={setGameIsWin}/>
       :
       <WinScreen restartGame={restartGame}/>
       }
-      
-      {/*
-      <div style={{border: '2px solid darkgreen'}}>
-        <div style={{display: 'flex', justifyContent: 'space-around'}}>
-          {game.map(element => <ArrayElement key={element} value={element}/>)}
-        </div>
-        <div style={{display: 'flex', justifyContent: 'space-around'}}>
-          {game.map(element => <AnswerField key={element} />)}
-        </div>
-      </div>
-      */}
-      {} 
     </div>
   )
 }

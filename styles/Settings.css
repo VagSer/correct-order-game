@@ -1,10 +1,21 @@
+
+
+
 .card {
-    border: 1px solid black;
+    box-sizing: border-box;
+
+    border-radius: 40px;
+    border: 20px solid;
+    border-image-source: linear-gradient(198.7deg, #7F75F0 -40.02%, #101F32 96.22%);
+    border-image-slice: 1;
     width: 90%;
+    max-width: 700px;
     margin: auto;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    background: white;
+
 }
 
 .options {
@@ -29,11 +40,46 @@
 }
 
 .selectedOrder {
-    background-color: darkgreen;
-    color: white
+    background: #FFD748;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Calibri';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    color: #423F45;
+    padding: 5px 20px;
 }
 
 .order {
-    background-color: darkblue;
-    color: white
+    background: rgba(255, 215, 72, 0.56);
+    border: none;
+    border-radius: 20px;
+    font-family: 'Calibri';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    color: rgba(66, 63, 69, 0.56);
+    padding: 5px 20px;
+}
+
+.Start {
+    background: #38DF7A;
+    border: none;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    width: 50%;
+    max-width: 260px;
+
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 44px;
+
+    margin: 20px auto;
+
+    color: #FFFFFF;
 }

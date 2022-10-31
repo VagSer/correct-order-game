@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
 
-export default function TestComponent(props: any) {
+export default function GameComponent(props: any) {
     const sortValues = (a, b) => {
         if (a.value > b.value) return 1
         else return -1
@@ -18,7 +18,6 @@ export default function TestComponent(props: any) {
 
     const simpleDropHandler = (e) => {
         e.preventDefault()
-        e.target.style.background = 'white'
     }
 
     const dragStartHandler = (e, card) => {
@@ -26,7 +25,7 @@ export default function TestComponent(props: any) {
     }
 
     const dragEndHandler = (e) => {
-        e.target.style.background = 'white'
+        e.target.style.background = 'rgba(0, 0, 0, 0.06)'
     }
 
     const dragOverHandler = (e) => {
@@ -42,17 +41,17 @@ export default function TestComponent(props: any) {
         e.preventDefault()
         if (card.id === currentCard.id) {
             setCardList(cardList.map(c => c = c.id === currentCard.id? {...c, value: -10} : {...c}))
+            e.target.style.background = 'lightgreen'
             setCorrectList(correctList.map(c => c = c.id === currentCard.id? {...c, visibleValue: currentCard.value} : {...c}))
             setCorrectCounter(correctCounter + 1)
         }
-        e.target.style.background = 'white'
+        else e.target.style.background = 'rgba(0, 0, 0, 0.06)'
     }
 
 
   return (
-    <div>
-        {}
-        <div style={{border: '1px solid black', display:'flex', justifyContent: 'space-around'}}>
+    <div className = 'Game'>
+        <div className="Game__Field">
             {cardList.map(card => 
                 card.value !== -10 ?
                 <div 
@@ -66,7 +65,8 @@ export default function TestComponent(props: any) {
                     onDragOver={e => dragOverHandler(e)} /* Находимся над другой карточкой */
                     onDrop={e => simpleDropHandler(e)} /* Действие, когда отпустили*/
                     onTouchEnd={e => simpleDropHandler(e)}
-                    style={{cursor: 'grab', width: '100px', height: '100px', justifyContent: 'center', display: 'flex', border: '2px solid blue', margin: '10px', 'background': 'lightgreen'}}>
+                    className='ObjectSort'
+                >
                     <h2>
                         {card.value}
                     </h2>
@@ -82,8 +82,15 @@ export default function TestComponent(props: any) {
                 )
             }
         </div>
-        <h3>Отсортируй</h3>
-        <div style={{border: '1px solid black', display:'flex', justifyContent: 'space-around'}}>
+        <h3
+            style={props.isReverse? {display: 'flex', justifyContent: 'flex-end', margin: '20px 50px'}
+            :
+            {display: 'flex', justifyContent: 'flex-start', margin: '20px 50px'}
+            }
+        >{props.isReverse? 'По убыванию' : 'По возрастанию'}</h3>
+        <div 
+        className="Answer__Field"
+        >
             {correctList.map(card => 
                 <div 
                     key={card.id} 
@@ -92,7 +99,7 @@ export default function TestComponent(props: any) {
                     onTouchEnd={e => dropHandler(e, card)}
                     onDragOver={e => dragOverHandler(e)} /* Находимся над другой карточкой */
                     onDrop={e => dropHandler(e, card)} /* Действие, когда отпустили*/
-                    style={{width: '100px', height: '100px', justifyContent: 'center', display: 'flex', border: '2px solid blue', margin: '10px'}}>
+                    className="Answer">
                     <h2>
                         {card.visibleValue}
                     </h2>

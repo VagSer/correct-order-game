@@ -61,6 +61,7 @@ export default function Settings(props: any) {
             </div>
         </div>
         <button
+            className="Start"
             onClick={() => props.startGame()}
         >
             Играть
