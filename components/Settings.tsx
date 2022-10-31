@@ -24,7 +24,7 @@ export default function Settings(props: any) {
                 />
             </div>
             <h2 className="paramName">Значения</h2>
-            <div className='wrapper'>
+            <div className='wrapper_width'>
                 <div className="options">
                     <h3>А</h3>
                     <h3>9</h3>
@@ -43,7 +43,7 @@ export default function Settings(props: any) {
                     onChange={e => props.setNumbers(Number(e.target.value))}
                 />
             </div>
-            <div className="wrapper">
+            <div className="wrapper_width">
                 <div className="options">
                     <button
                         className={!props.isReverse? "selectedOrder" : 'order'}

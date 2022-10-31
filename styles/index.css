@@ -1,3 +1,14 @@
+body {
+    background-image: url('images/4882066_1.jpg');
+    position: relative;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    -moz-background-size: 100%;
+    -ms-background-size: 100%;
+    -khtml-background-size: 100%;
+    background-size: 100%;
+}
+
 .field {
     display: 'flex'; 
     justify-content: 'space-around';
