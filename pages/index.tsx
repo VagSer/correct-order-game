@@ -1,7 +1,5 @@
 import Settings from "../components/Settings";
 import { useState } from "react";
-import ArrayElement from "../components/ArrayElement";
-import AnswerField from "../components/AnswerField";
 import GameComponent from "../components/GameComponent";
 import WinScreen from "../components/WinScreen";
 

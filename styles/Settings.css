@@ -5,17 +5,25 @@
     box-sizing: border-box;
 
     border-radius: 40px;
-    border: 20px solid;
-    border-image-source: linear-gradient(198.7deg, #7F75F0 -40.02%, #101F32 96.22%);
-    border-image-slice: 1;
+    background: linear-gradient(198.7deg, #7F75F0 -40.02%, #101F32 96.22%);
     width: 90%;
     max-width: 700px;
     margin: auto;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background: white;
+}
 
+.cardContent {
+    background: white; 
+    width: 95%; 
+    height: 95%;
+    border-radius: 40px;
+    margin: 15px auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .options {
