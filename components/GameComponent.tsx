@@ -7,6 +7,8 @@ export default function GameComponent(props: any) {
         else return -1
     }
 
+    const getRandomInt = (min, max) => Math.floor(Math.random() * max) + min
+
     const [cardList, setCardList] = useState([...props.game])
 
     let correctAnswer = props.isReverse? [...cardList].sort(sortValues).reverse() : [...cardList].sort(sortValues)
@@ -25,12 +27,11 @@ export default function GameComponent(props: any) {
     }
 
     const dragEndHandler = (e) => {
-        e.target.style.background = 'rgba(0, 0, 0, 0.06)'
+        
     }
 
     const dragOverHandler = (e) => {
         e.preventDefault()
-        e.target.style.background = 'lightgray'
     }
 
     useEffect(() => {
@@ -45,7 +46,7 @@ export default function GameComponent(props: any) {
             setCorrectList(correctList.map(c => c = c.id === currentCard.id? {...c, visibleValue: currentCard.value} : {...c}))
             setCorrectCounter(correctCounter + 1)
         }
-        else e.target.style.background = 'rgba(0, 0, 0, 0.06)'
+        
     }
 
 
@@ -65,16 +66,16 @@ export default function GameComponent(props: any) {
                     onDragOver={e => dragOverHandler(e)} /* Находимся над другой карточкой */
                     onDrop={e => simpleDropHandler(e)} /* Действие, когда отпустили*/
                     onTouchEnd={e => simpleDropHandler(e)}
-                    className='ObjectSort'
+                    className={`ObjectSort_${getRandomInt(1, 3)}`}
                 >
-                    <h2>
+                    <h2 className="Object__Text">
                         {card.value}
                     </h2>
                 </div>
                 :
                 <div 
                     key={card.id} 
-                    style={{width: '100px', height: '100px', justifyContent: 'center', display: 'flex', border: '2px solid blue', margin: '10px'}}>
+                    >
                     <h2>
                         {card.visibleValue}
                     </h2>
@@ -83,6 +84,7 @@ export default function GameComponent(props: any) {
             }
         </div>
         <h3
+            className="Object__Text"
             style={props.isReverse? {display: 'flex', justifyContent: 'flex-end', margin: '20px 50px'}
             :
             {display: 'flex', justifyContent: 'flex-start', margin: '20px 50px'}

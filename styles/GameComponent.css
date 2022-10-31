@@ -1,5 +1,5 @@
 .Game {
-    background-color: #F5F5F5;
+    background-color: rgba(58, 31, 54, 1);
     display:'flex';
     height: 100vh;
     justify-content: 'space-around';
@@ -32,13 +32,86 @@
     margin: 10px;
 }
 
-.ObjectSort {
+.Object__Text {
+    color: #FFFFFF;
+    text-shadow: 
+    -0   -2px 0   #242546,
+     0   -2px 0   #242546,
+    -0    2px 0   #242546,
+     0    2px 0   #242546,
+    -2px -0   0   #242546,
+     2px -0   0   #242546,
+    -2px  0   0   #242546,
+     2px  0   0   #242546,
+    -1px -2px 0   #242546,
+     1px -2px 0   #242546,
+    -1px  2px 0   #242546,
+     1px  2px 0   #242546,
+    -2px -1px 0   #242546,
+     2px -1px 0   #242546,
+    -2px  1px 0   #242546,
+     2px  1px 0   #242546,
+    -2px -2px 0   #242546,
+     2px -2px 0   #242546,
+    -2px  2px 0   #242546,
+     2px  2px 0   #242546,
+    -2px -2px 0   #242546,
+     2px -2px 0   #242546,
+    -2px  2px 0   #242546,
+     2px  2px 0   #242546;
+}
+
+
+.ObjectSort_1 {
     cursor: grab; 
     width: 100px;
     height: 100px;
-    justify-content: center; 
     display: flex; 
-    border: 2px solid blue;
-    margin: '10px'; 
-    background: 'lightgreen';
-    }
+    justify-content: center; 
+    align-items: center;
+    margin: 10px; 
+    background-image: url('images/Object_11.png');
+    position: relative;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    -moz-background-size: 100%;
+    -ms-background-size: 100%;
+    -khtml-background-size: 100%;
+    background-size: 100%;
+}
+
+.ObjectSort_2 {
+    cursor: grab; 
+    width: 100px;
+    height: 100px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    margin: 10px;
+    background-image: url('images/Object_12.png');
+    position: relative;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    -moz-background-size: 100%;
+    -ms-background-size: 100%;
+    -khtml-background-size: 100%;
+    background-size: 100%;
+}
+
+.ObjectSort_3 {
+    cursor: grab; 
+    width: 100px;
+    height: 100px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    margin: 10px; 
+    background-image: url('images/Object_13.png');
+    position: relative;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    -moz-background-size: 100%;
+    -ms-background-size: 100%;
+    -khtml-background-size: 100%;
+    background-size: 100%;
+}
