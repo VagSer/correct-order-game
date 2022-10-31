@@ -7,7 +7,7 @@ export default function GameComponent(props: any) {
         else return -1
     }
 
-    const getRandomInt = (min, max) => Math.floor(Math.random() * max) + min
+    const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
 
     const [cardList, setCardList] = useState([...props.game])
 
@@ -66,7 +66,7 @@ export default function GameComponent(props: any) {
                     onDragOver={e => dragOverHandler(e)} /* Находимся над другой карточкой */
                     onDrop={e => simpleDropHandler(e)} /* Действие, когда отпустили*/
                     onTouchEnd={e => simpleDropHandler(e)}
-                    className={`ObjectSort_${getRandomInt(1, 3)}`}
+                    className={`ObjectSort _${getRandomInt(11, 13)}`}
                 >
                     <h2 className="Object__Text">
                         {card.value}
