@@ -13,26 +13,6 @@
     height: 70vh;
 }
 
-.Answer__Field {
-    background: radial-gradient(238.96% 238.96% at 50% 54.28%, #5E3E0D 0%, #C09F9B 100%);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 50px;
-    display: flex;
-    justify-content: space-around;
-}
-
-.Answer {
-    width: 131px;
-    height: 131px;
-    background: rgba(0, 0, 0, 0.06);
-    box-shadow: inset 0px 4px 25px rgba(0, 0, 0, 0.25);
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-}
-
 .Object__Text {
     color: #FFFFFF;
     font-size: 2rem;
@@ -73,70 +53,4 @@
     align-items: center;
     margin: 10px; 
     
-}
-
-._11 {
-    background-image: url('images/Object_11.png');
-    position: relative;
-    -webkit-background-size: 100%;
-    -o-background-size: 100%;
-    -moz-background-size: 100%;
-    -ms-background-size: 100%;
-    -khtml-background-size: 100%;
-    background-size: 100%;
-}
-
-._12 {
-    background-image: url('images/Object_12.png');
-    position: relative;
-    -webkit-background-size: 100%;
-    -o-background-size: 100%;
-    -moz-background-size: 100%;
-    -ms-background-size: 100%;
-    -khtml-background-size: 100%;
-    background-size: 100%;
-}
-
-._13 {
-    background-image: url('images/Object_13.png');
-    position: relative;
-    -webkit-background-size: 100%;
-    -o-background-size: 100%;
-    -moz-background-size: 100%;
-    -ms-background-size: 100%;
-    -khtml-background-size: 100%;
-    background-size: 100%;
-}
-
-._21 {
-    background-image: url('images/Object_21.png');
-    position: relative;
-    -webkit-background-size: 100%;
-    -o-background-size: 100%;
-    -moz-background-size: 100%;
-    -ms-background-size: 100%;
-    -khtml-background-size: 100%;
-    background-size: 100%;
-}
-
-._22 {
-    background-image: url('images/Object_22.png');
-    position: relative;
-    -webkit-background-size: 100%;
-    -o-background-size: 100%;
-    -moz-background-size: 100%;
-    -ms-background-size: 100%;
-    -khtml-background-size: 100%;
-    background-size: 100%;
-}
-
-._23 {
-    background-image: url('images/Object_23.png');
-    position: relative;
-    -webkit-background-size: 100%;
-    -o-background-size: 100%;
-    -moz-background-size: 100%;
-    -ms-background-size: 100%;
-    -khtml-background-size: 100%;
-    background-size: 100%;
 }

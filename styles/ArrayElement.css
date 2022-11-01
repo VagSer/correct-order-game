@@ -1,0 +1,69 @@
+
+
+/*По этим номера определяется внешний вид объекта, который игрок будет перетаскивать*/
+
+._11 {
+    background-image: url('images/Object_11.png');
+    position: relative;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    -moz-background-size: 100%;
+    -ms-background-size: 100%;
+    -khtml-background-size: 100%;
+    background-size: 100%;
+}
+
+._12 {
+    background-image: url('images/Object_12.png');
+    position: relative;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    -moz-background-size: 100%;
+    -ms-background-size: 100%;
+    -khtml-background-size: 100%;
+    background-size: 100%;
+}
+
+._13 {
+    background-image: url('images/Object_13.png');
+    position: relative;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    -moz-background-size: 100%;
+    -ms-background-size: 100%;
+    -khtml-background-size: 100%;
+    background-size: 100%;
+}
+
+._21 {
+    background-image: url('images/Object_21.png');
+    position: relative;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    -moz-background-size: 100%;
+    -ms-background-size: 100%;
+    -khtml-background-size: 100%;
+    background-size: 100%;
+}
+
+._22 {
+    background-image: url('images/Object_22.png');
+    position: relative;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    -moz-background-size: 100%;
+    -ms-background-size: 100%;
+    -khtml-background-size: 100%;
+    background-size: 100%;
+}
+
+._23 {
+    background-image: url('images/Object_23.png');
+    position: relative;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    -moz-background-size: 100%;
+    -ms-background-size: 100%;
+    -khtml-background-size: 100%;
+    background-size: 100%;
+}
