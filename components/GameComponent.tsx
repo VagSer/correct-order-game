@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import AnswerElement from "./AnswerElement"
 import ArrayElement from "./ArrayElement"
 
 
@@ -60,7 +61,7 @@ export default function GameComponent(props: any) {
                     dragEndHandler={dragEndHandler}
                     dragOverHandler={dragOverHandler}
                     simpleDropHandler={simpleDropHandler}
-                    card={card}
+                    card={{...card, visibleValue: ''}}
                 />
                 :
                 <div key={card.id}>
@@ -79,18 +80,27 @@ export default function GameComponent(props: any) {
         className="Answer__Field"
         >
             {correctList.map(card => 
-                <div 
+               /* <div 
                     key={card.id} 
-                    onDragLeave={e => dragEndHandler(e)} /* Вышли за пределы другой*/
-                    onDragEnd={e => dragEndHandler(e)} /* Отпустили */
+                    onDragLeave={e => dragEndHandler(e)} 
+                    onDragEnd={e => dragEndHandler(e)}
                     onTouchEnd={e => dropHandler(e, card)}
-                    onDragOver={e => dragOverHandler(e)} /* Находимся над другой карточкой */
-                    onDrop={e => dropHandler(e, card)} /* Действие, когда отпустили*/
+                    onDragOver={e => dragOverHandler(e)} 
+                    onDrop={e => dropHandler(e, card)} 
                     className="Answer">
                     <h2 className="Object__Text">
                         {card.visibleValue}
                     </h2>
-                </div>)
+                </div>
+                */
+               <AnswerElement 
+                    key={card.id}
+                    dragEndHandler={dragEndHandler}
+                    dragOverHandler={dragOverHandler}
+                    dropHandler={dropHandler}
+                    card={card}
+               />
+                )
             }
         </div>
     </div>
