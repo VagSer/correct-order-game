@@ -11,7 +11,7 @@ export default function GameComponent(props: any) {
 
     const [cardList, setCardList] = useState([...props.game])
 
-    let correctAnswer = props.isReverse? [...cardList].sort(sortValues).reverse() : [...cardList].sort(sortValues)
+    const correctAnswer = props.isReverse? [...cardList].sort(sortValues).reverse() : [...cardList].sort(sortValues)
 
     const [correctList, setCorrectList] = useState([...correctAnswer])
     const [correctCounter, setCorrectCounter] = useState(0)
@@ -27,7 +27,7 @@ export default function GameComponent(props: any) {
     }
 
     const dragEndHandler = (e) => {
-        
+          
     }
 
     const dragOverHandler = (e) => {
@@ -80,19 +80,6 @@ export default function GameComponent(props: any) {
         className="Answer__Field"
         >
             {correctList.map(card => 
-               /* <div 
-                    key={card.id} 
-                    onDragLeave={e => dragEndHandler(e)} 
-                    onDragEnd={e => dragEndHandler(e)}
-                    onTouchEnd={e => dropHandler(e, card)}
-                    onDragOver={e => dragOverHandler(e)} 
-                    onDrop={e => dropHandler(e, card)} 
-                    className="Answer">
-                    <h2 className="Object__Text">
-                        {card.visibleValue}
-                    </h2>
-                </div>
-                */
                <AnswerElement 
                     key={card.id}
                     dragEndHandler={dragEndHandler}

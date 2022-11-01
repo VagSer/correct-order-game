@@ -1,7 +1,7 @@
 .Game {
     background-color: rgba(58, 31, 54, 1);
     display:'flex';
-    height: 100vh;
+    height: 90vh;
     justify-content: 'space-around';
     padding: 40px;
 }
@@ -99,6 +99,39 @@
 
 ._13 {
     background-image: url('images/Object_13.png');
+    position: relative;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    -moz-background-size: 100%;
+    -ms-background-size: 100%;
+    -khtml-background-size: 100%;
+    background-size: 100%;
+}
+
+._21 {
+    background-image: url('images/Object_21.png');
+    position: relative;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    -moz-background-size: 100%;
+    -ms-background-size: 100%;
+    -khtml-background-size: 100%;
+    background-size: 100%;
+}
+
+._22 {
+    background-image: url('images/Object_22.png');
+    position: relative;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    -moz-background-size: 100%;
+    -ms-background-size: 100%;
+    -khtml-background-size: 100%;
+    background-size: 100%;
+}
+
+._23 {
+    background-image: url('images/Object_23.png');
     position: relative;
     -webkit-background-size: 100%;
     -o-background-size: 100%;

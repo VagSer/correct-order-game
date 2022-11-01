@@ -59,8 +59,9 @@ export default function Home() {
         }
       }
       let round = [...gameSet]
+      const theme = getRandomIntTwo(1, 2)*10
       for (let i = 1; i <= howMany; i++) {
-        const style = getRandomIntTwo(11, 13)
+        const style = getRandomIntTwo(theme+1, theme+2)
         let newElement = {id: i, value: round[getRandomInt(round.length)], style}
         round = round.filter(elem => elem != newElement.value)
         newGame.push(newElement)
