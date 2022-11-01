@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import ArrayElement from "./ArrayElement"
 
 
 export default function GameComponent(props: any) {
@@ -6,8 +7,6 @@ export default function GameComponent(props: any) {
         if (a.value > b.value) return 1
         else return -1
     }
-
-    const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
 
     const [cardList, setCardList] = useState([...props.game])
 
@@ -55,30 +54,16 @@ export default function GameComponent(props: any) {
         <div className = "Game__Field">
             {cardList.map(card => 
                 card.value !== -10 ?
-                <div 
-                    key={card.id} 
-                    draggable={true}
-                    onDragStart={e => dragStartHandler(e, card)} /* Взяли карточку */
-                    onTouchStart={e => dragStartHandler(e, card)}
-                    onDragLeave={e => dragEndHandler(e)} /* Вышли за пределы другой*/
-                    onDragEnd={e => dragEndHandler(e)} /* Отпустили */
-                    onTouchMove={e => {dragEndHandler(e) }}
-                    onDragOver={e => dragOverHandler(e)} /* Находимся над другой карточкой */
-                    onDrop={e => simpleDropHandler(e)} /* Действие, когда отпустили*/
-                    onTouchEnd={e => simpleDropHandler(e)}
-                    className={`ObjectSort _${getRandomInt(11, 13)}`}
-                >
-                    <h2 className="Object__Text">
-                        {card.value}
-                    </h2>
-                </div>
+                <ArrayElement 
+                    key={card.id}
+                    dragStartHandler={dragStartHandler}
+                    dragEndHandler={dragEndHandler}
+                    dragOverHandler={dragOverHandler}
+                    simpleDropHandler={simpleDropHandler}
+                    card={card}
+                />
                 :
-                <div 
-                    key={card.id} 
-                    >
-                    <h2>
-                        {card.visibleValue}
-                    </h2>
+                <div key={card.id}>
                 </div>
                 )
             }
@@ -102,7 +87,7 @@ export default function GameComponent(props: any) {
                     onDragOver={e => dragOverHandler(e)} /* Находимся над другой карточкой */
                     onDrop={e => dropHandler(e, card)} /* Действие, когда отпустили*/
                     className="Answer">
-                    <h2>
+                    <h2 className="Object__Text">
                         {card.visibleValue}
                     </h2>
                 </div>)

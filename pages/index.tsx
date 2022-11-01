@@ -19,6 +19,8 @@ export default function Home() {
 
   const getRandomInt = (max: number) => Math.floor(Math.random() * max)
 
+  const getRandomIntTwo = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
+
   const startGame = () => {
       setGameIsOn(true)
       setGame([])
@@ -58,7 +60,8 @@ export default function Home() {
       }
       let round = [...gameSet]
       for (let i = 1; i <= howMany; i++) {
-        let newElement = {id: i, value: round[getRandomInt(round.length)], visibleValue: ''}
+        const style = getRandomIntTwo(11, 13)
+        let newElement = {id: i, value: round[getRandomInt(round.length)], style}
         round = round.filter(elem => elem != newElement.value)
         newGame.push(newElement)
       }
